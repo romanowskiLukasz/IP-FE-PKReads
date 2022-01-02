@@ -7,18 +7,23 @@ import { Link } from "react-router-dom";
 
 const axios = require("axios").default;
 
-function CatalogBookCard({ book, userRating }) {
+function CatalogBookCard({ book, userRating, avgRating }) {
   const { title, img, name, publishingHouse, book_id } = book;
   const isLoggedIn = useStoreState((state) => state.isLoggedIn);
   const me = useStoreState((state) => state.me);
   const [rating, setRating] = React.useState(0);
-  const [avgRating, setAvgRating] = React.useState(3);
+  const [avgBookRating, setAvgRating] = React.useState(0);
 
   useEffect(() => {
     if (userRating != null) {
       setRating(userRating.stars_count);
     }
   }, [userRating]);
+  useEffect(() => {
+    if (avgRating != null) {
+      setAvgRating(parseInt(avgRating.stars_count));
+    }
+  }, [avgRating]);
 
   const handleChange = (value, newValue) => {
     setRating(newValue);
@@ -41,7 +46,7 @@ function CatalogBookCard({ book, userRating }) {
           <p>Wydawnictwo: {publishingHouse}</p>
 
           <p style={{ marginTop: "25px" }}>Średnia ocena:</p>
-          <Rating value={avgRating} readOnly />
+          <Rating value={avgBookRating} readOnly />
         </Link>
         {isLoggedIn && (
           <>

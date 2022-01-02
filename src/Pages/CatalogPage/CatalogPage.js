@@ -11,6 +11,7 @@ function CatalogPage() {
   const [categories, setCategories] = useState([]);
   const [chosenBooks, setChosenBooks] = useState([]);
   const [userRaitings, setUserRatings] = useState([]);
+  const [avgRatings, setAvgRatings] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const me = useStoreState((state) => state.me);
   const inputRef = useRef("");
@@ -37,6 +38,9 @@ function CatalogPage() {
     if (me.id != null) {
       axios.get(`http://localhost:8080/ratings/${me.id}`).then((response) => {
         setUserRatings(response.data);
+      });
+      axios.get(`http://localhost:8080/avgRatings`).then((response) => {
+        setAvgRatings(response.data);
       });
     }
   }, []);
@@ -80,7 +84,11 @@ function CatalogPage() {
           filterBookCategories={filterBooksCategories}
         />
       </div>
-      <CatalogBooks books={chosenBooks} userRaitings={userRaitings} />
+      <CatalogBooks
+        books={chosenBooks}
+        userRaitings={userRaitings}
+        avgRatings={avgRatings}
+      />
     </>
   );
 }
