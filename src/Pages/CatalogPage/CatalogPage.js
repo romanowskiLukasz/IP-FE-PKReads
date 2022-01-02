@@ -35,12 +35,12 @@ function CatalogPage() {
       setAllBooks(resp.data);
       setChosenBooks(resp.data);
     });
+    axios.get(`http://localhost:8080/avgRatings`).then((response) => {
+      setAvgRatings(response.data);
+    });
     if (me.id != null) {
       axios.get(`http://localhost:8080/ratings/${me.id}`).then((response) => {
         setUserRatings(response.data);
-      });
-      axios.get(`http://localhost:8080/avgRatings`).then((response) => {
-        setAvgRatings(response.data);
       });
     }
   }, []);
@@ -57,7 +57,6 @@ function CatalogPage() {
 
   const handleSearchChange = () => {
     setSearchTerm(inputRef.current.value);
-    console.log(inputRef.current.value);
     if (inputRef.current.value !== "") {
       const newItems = chosenBooks.filter((item) => {
         return item.title
