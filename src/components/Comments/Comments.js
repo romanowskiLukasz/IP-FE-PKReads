@@ -8,6 +8,7 @@ function Comments({ comments, bookId }) {
   const [inputValue, setInputValue] = useState("");
   const [bookComments, setbookComments] = useState([]);
   const me = useStoreState((state) => state.me);
+  const isLoggedIn = useStoreState((state) => state.isLoggedIn);
 
   useEffect(() => {
     setbookComments(comments);
@@ -40,17 +41,19 @@ function Comments({ comments, bookId }) {
     <div className="comments_container">
       <div className="divider" />
       <h2>Komentarze</h2>
-      <input
-        value={inputValue}
-        name="email"
-        onChange={(e) => {
-          setInputValue(e.target.value);
-        }}
-        type="text"
-        placeholder="Dodaj komentarz..."
-        onKeyPress={handleSubmit}
-      />
-      <div className="divider" />
+      {isLoggedIn && (
+        <input
+          value={inputValue}
+          name="email"
+          onChange={(e) => {
+            setInputValue(e.target.value);
+          }}
+          type="text"
+          placeholder="Dodaj komentarz..."
+          onKeyPress={handleSubmit}
+        />
+      )}
+
       {bookComments &&
         bookComments.map((comment) => {
           return (

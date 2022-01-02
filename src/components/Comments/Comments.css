@@ -11,3 +11,15 @@
   margin-bottom: 15px;
   margin-top: 15px;
 }
+
+.comments_container > input {
+  width: 400px;
+  outline: none;
+  margin-top: 10px;
+  padding-left: 10px;
+  height: 30px;
+  border: none;
+  border-bottom: #483434 solid 1px;
+  background-color: #f2e6dc;
+  margin-bottom: 10px;
+}

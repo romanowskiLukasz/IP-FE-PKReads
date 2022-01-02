@@ -14,7 +14,6 @@ function SingleBookPage() {
   const [bookInfo, setBookInfo] = useState([]);
   const [comments, setComments] = useState([]);
 
-  const isLoggedIn = useStoreState((state) => state.isLoggedIn);
   const me = useStoreState((state) => state.me);
 
   useEffect(() => {
