@@ -41,7 +41,7 @@ const Navbar = () => {
             style={{ fontFamily: "'Galada', cursive" }}
             onClick={closeMobileMenu}
           >
-            PK Lib <GiBlackBook size={45} style={{ marginLeft: "5px" }} />
+            PKReads <GiBlackBook size={45} style={{ marginLeft: "5px" }} />
           </Link>
           <div className="menu-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} />

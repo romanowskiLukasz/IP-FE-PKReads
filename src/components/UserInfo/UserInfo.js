@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useStoreState } from "easy-peasy";
 import "./UserInfo.css";
-import ChangeUserInfo from "../../ChangeUserInfo/ChangeUserInfo";
+import ChangeUserInfo from "../ChangeUserInfo/ChangeUserInfo";
 
 const axios = require("axios").default;
 
