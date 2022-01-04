@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useStoreState } from "easy-peasy";
 import "./Comments.css";
+import { RiDeleteBin5Fill } from "react-icons/ri";
 
 const axios = require("axios").default;
 
@@ -13,6 +14,12 @@ function Comments({ comments, bookId }) {
   useEffect(() => {
     setbookComments(comments);
   }, [comments]);
+
+  const handleDelete = (id) => {
+    let newBookComments = bookComments.filter((comment) => comment.id != id);
+    setbookComments(newBookComments);
+    axios.delete("http://localhost:8080/deleteComment/" + id);
+  };
 
   const handleSubmit = (event) => {
     if (event.key === "Enter") {
@@ -40,7 +47,7 @@ function Comments({ comments, bookId }) {
   return (
     <div className="comments_container">
       <div className="divider" />
-      <h2>Komentarze</h2>
+      <h2>Recenzje</h2>
       {isLoggedIn && (
         <input
           value={inputValue}
@@ -49,7 +56,7 @@ function Comments({ comments, bookId }) {
             setInputValue(e.target.value);
           }}
           type="text"
-          placeholder="Dodaj komentarz..."
+          placeholder="Dodaj recenzje..."
           onKeyPress={handleSubmit}
         />
       )}
@@ -57,10 +64,18 @@ function Comments({ comments, bookId }) {
       {bookComments &&
         bookComments.map((comment) => {
           return (
-            <>
-              <h5 style={{ marginTop: "10px" }}>{comment.user_name}</h5>
-              <p>{comment.content}</p>
-            </>
+            <div className="comment_container">
+              <div>
+                <h5 style={{ marginTop: "10px" }}>{comment.user_name}</h5>
+                <p>{comment.content}</p>
+              </div>
+              <div
+                className="coment_icon_container"
+                onClick={() => handleDelete(comment.id)}
+              >
+                <RiDeleteBin5Fill />
+              </div>
+            </div>
           );
         })}
 

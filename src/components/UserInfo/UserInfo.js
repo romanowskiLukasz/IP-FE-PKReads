@@ -42,9 +42,6 @@ function ContactInfo() {
     <div className="contact_info_container">
       <h2>Twoje dane</h2>
       <div className="user_info_divider" />
-      <h3>Numer karty do biblioteki</h3>
-      <p>00000{me.id}</p>
-      <div className="user_info_divider" />
       <h3>Email</h3>
       <p>{me.email}</p>
       {!showEmailChange && (
@@ -79,10 +76,6 @@ function ContactInfo() {
           onSubmit={changePassword}
         />
       )}
-
-      <div className="user_info_divider" />
-      <h3>Stan konta </h3>
-      <p>Saldo konta: 0.00 PLN</p>
     </div>
   );
 }

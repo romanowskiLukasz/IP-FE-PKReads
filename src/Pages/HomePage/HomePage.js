@@ -35,8 +35,8 @@ function HomePage() {
             sectionTitle={"Popularne książki"}
           />
           <NewBooks
-            books={allBooks.slice(0, 8)}
-            sectionTitle={"Nowości w naszej bibliotece"}
+            books={allBooks.slice(allBooks.length - 8, allBooks.length)}
+            sectionTitle={"Nowości na naszej stronie"}
           />
         </div>
         <div className="home_page_info_container">

@@ -17,8 +17,6 @@ function UsersPage() {
     });
   }, []);
 
-  console.log(allUsers);
-
   const handleSearchChange = () => {
     if (inputRef.current.value !== "") {
       const newItems = choosenUsers.filter((item) => {

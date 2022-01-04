@@ -9,32 +9,21 @@ import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import "./ReservedBookTable.css";
 
-function createData(title, author, bookBorrowDate, bookReturnDate) {
-  return { title, author, bookBorrowDate, bookReturnDate };
+function createData(bookTitle, authorName, bookStatus) {
+  return { bookTitle, authorName, bookStatus };
 }
 
-export default function ReservedBookTable({
-  books,
-  title,
-  columnTitle1,
-  columnTitle2,
-}) {
+export default function ReservedBookTable({ books, title }) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const [rows, setRows] = useState(books);
 
   const columns = [
-    { id: "title", label: "Tytuł", minWidth: 170 },
-    { id: "name", label: "Autor", minWidth: 100 },
+    { id: "bookTitle", label: "Tytuł", minWidth: 170 },
+    { id: "authorName", label: "Autor", minWidth: 100 },
     {
-      id: "reservation_date",
-      label: columnTitle1,
-      minWidth: 170,
-      align: "right",
-    },
-    {
-      id: "return_date",
-      label: columnTitle2,
+      id: "bookStatus",
+      label: "Status książki",
       minWidth: 170,
       align: "right",
     },

@@ -3,27 +3,29 @@ import "./ProfilePage.css";
 import ReservedBookTable from "../../components/ReservedBookTable/ReservedBookTable";
 import UserInfo from "../../components/UserInfo/UserInfo";
 import { useStoreState } from "easy-peasy";
+import UserStatistics from "../../components/UserStatistics/UserStatistics";
 
 const axios = require("axios").default;
 
 function ProfilePage() {
   const userId = useStoreState((state) => state.me.id);
-  const [reservations, setReservations] = useState([]);
-  const [borrowed, setBorrowed] = useState([]);
+  const [books, setBooks] = useState([]);
+  const [amountOfReadBooks, setAmountOfReadBooks] = useState(0);
 
   useEffect(() => {
     if (userId != null) {
-      axios.get(`http://localhost:8080/reservations/${userId}`).then((resp) => {
-        setReservations(resp.data);
-      });
       axios
-        .get(`http://localhost:8080/borrowedBooks/${userId}`)
+        .get(`http://localhost:8080/user/getBooksStatus/${userId}`)
         .then((resp) => {
-          setBorrowed(resp.data);
-          console.log(resp.data);
+          setBooks(resp.data);
         });
     }
   }, []);
+
+  useEffect(() => {
+    const newItems = books.filter((item) => item.bookStatus === "Przeczytana");
+    setAmountOfReadBooks(newItems.length);
+  }, [books]);
 
   return (
     <>
@@ -32,17 +34,10 @@ function ProfilePage() {
       <div className="contact_page_container">
         <UserInfo />
         <div className="tables_container">
-          <ReservedBookTable
-            books={reservations}
-            title={"Obecnie zarezerwowane"}
-            columnTitle1={"Data rezerwacji"}
-            columnTitle2={"Wygaśnięcie rezerwacji"}
-          />
-          <ReservedBookTable
-            books={borrowed}
-            title={"Obecnie wypożyczone"}
-            columnTitle1={"Data wypożyczenia"}
-            columnTitle2={"Termin oddania"}
+          <ReservedBookTable books={books} title={"Twoje książki"} />
+          <UserStatistics
+            AmountOfBooksOnShelf={books.length}
+            amountOfReadBooks={amountOfReadBooks}
           />
         </div>
       </div>

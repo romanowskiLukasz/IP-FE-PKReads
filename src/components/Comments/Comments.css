@@ -23,3 +23,22 @@
   background-color: #f2e6dc;
   margin-bottom: 10px;
 }
+
+.comment_container {
+  display: flex;
+  max-width: 80%;
+}
+
+.coment_icon_container {
+  padding: 5px;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 20px;
+}
+
+.coment_icon_container:hover {
+  cursor: pointer;
+}
