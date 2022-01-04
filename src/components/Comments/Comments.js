@@ -69,12 +69,14 @@ function Comments({ comments, bookId }) {
                 <h5 style={{ marginTop: "10px" }}>{comment.user_name}</h5>
                 <p>{comment.content}</p>
               </div>
-              <div
-                className="coment_icon_container"
-                onClick={() => handleDelete(comment.id)}
-              >
-                <RiDeleteBin5Fill />
-              </div>
+              {me.account_type === "admin" && (
+                <div
+                  className="coment_icon_container"
+                  onClick={() => handleDelete(comment.id)}
+                >
+                  <RiDeleteBin5Fill />
+                </div>
+              )}
             </div>
           );
         })}
