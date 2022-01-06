@@ -5,16 +5,13 @@ function LibraryInfo() {
   return (
     <div className="library_info_container">
       <div className="library_info_divider" />
-      <h3>Nasza Biblioteka</h3>
+      <h3>Witaj w naszej aplikacji!</h3>
       <p>
-        Biblioteka PK Lib powstała w 2021 roku, w Krakowie. Naszym celem jest
-        promowania czytelnictwa wśród studentów i aktywne wspieranie rozwoju
-        społeczności uczelni w zakresie wiedzy i kultury. Budujemy pozytywny
-        wizerunek biblioteki łączącej klasyczne z nowoczesnym bowiem u nas można
-        wypożyczyć nie tylko książki papierowe, ale także czytniki ebooków.W
-        filii biblioteki znajdziesz liczne działy, w których nie tylko
-        przejrzysz zasoby książkowe, ale także odpoczniesz i znajdziesz miejsce
-        do nauki
+        Na naszym portalu odkryjesz wiele ciekawych pozycji czytelniczych i
+        poznasz liczne opinie użytkowników na ich temat. Po założeniu konta
+        będziesz mieć możliwość dodania interesujących Cię książek na półkę,
+        zrecenzowania ich i ocenienia. Dzięki temu wszystkie Twoje książki będą
+        skatalogowane w jednym miejscu.
       </p>
     </div>
   );

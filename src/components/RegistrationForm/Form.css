@@ -137,3 +137,8 @@
 .form_header_text {
   color: #606459;
 }
+
+.form_success_link {
+  text-align: center;
+  justify-content: center;
+}

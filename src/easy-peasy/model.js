@@ -13,4 +13,7 @@ export default {
   setMe: action((state, userInfo) => {
     state.me = userInfo;
   }),
+  setLoggedUserEmal: action((state, newEmail) => {
+    state.loggedUserEmal = newEmail;
+  }),
 };

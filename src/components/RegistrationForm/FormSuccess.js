@@ -7,7 +7,7 @@ const FormSuccess = () => {
   return (
     <div className="register_success_container">
       <Divider sectionTitle={"Konto zostało założone!"} />
-      <Link to="/">
+      <Link to="/" className="form_success_link">
         <button className="form-input-btn">Wróć do strony głównej</button>
       </Link>
     </div>
