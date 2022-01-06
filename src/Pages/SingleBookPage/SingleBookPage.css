@@ -44,3 +44,29 @@
   color: #606459;
   transition: all 0.3s ease-out;
 }
+
+.copy_link_container {
+  display: flex;
+  text-align: center;
+}
+
+.copy_link_button {
+  margin-top: 15px;
+  margin-left: 25px;
+  width: 70px;
+  height: 35px;
+  background-color: transparent;
+  color: #606459;
+  padding: 8px 20px;
+  border: 1px solid #606459;
+  transition: all 0.3s ease-out;
+  font-size: 1em;
+  border-radius: 5px;
+}
+
+.copy_link_button:hover {
+  cursor: pointer;
+  background: #ebc479;
+  color: #606459;
+  transition: all 0.3s ease-out;
+}

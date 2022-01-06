@@ -11,6 +11,7 @@ function ProfilePage() {
   const userId = useStoreState((state) => state.me.id);
   const [books, setBooks] = useState([]);
   const [amountOfReadBooks, setAmountOfReadBooks] = useState(0);
+  const [userRaitings, setUserRatings] = useState([]);
 
   useEffect(() => {
     if (userId != null) {
@@ -19,6 +20,9 @@ function ProfilePage() {
         .then((resp) => {
           setBooks(resp.data);
         });
+      axios.get(`http://localhost:8080/ratings/${userId}`).then((response) => {
+        setUserRatings(response.data);
+      });
     }
   }, []);
 
@@ -38,6 +42,7 @@ function ProfilePage() {
           <UserStatistics
             AmountOfBooksOnShelf={books.length}
             amountOfReadBooks={amountOfReadBooks}
+            amountOfRatings={userRaitings.length}
           />
         </div>
       </div>

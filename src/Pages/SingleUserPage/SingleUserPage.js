@@ -13,6 +13,7 @@ function SingleUserPage() {
   const [books, setBooks] = useState([]);
   const [amountOfReadBooks, setAmountOfReadBooks] = useState(0);
   const [username, setUsername] = useState(0);
+  const [userRaitings, setUserRatings] = useState([]);
 
   useEffect(() => {
     axios
@@ -22,6 +23,9 @@ function SingleUserPage() {
       });
     axios.get(`http://localhost:8080/userInfo/${userId}`).then((resp) => {
       setUsername(resp.data.name);
+    });
+    axios.get(`http://localhost:8080/ratings/${userId}`).then((response) => {
+      setUserRatings(response.data);
     });
   }, []);
 
@@ -40,6 +44,7 @@ function SingleUserPage() {
         <UserStatistics
           AmountOfBooksOnShelf={books.length}
           amountOfReadBooks={amountOfReadBooks}
+          amountOfRatings={userRaitings.length}
         />
       </div>
     </div>

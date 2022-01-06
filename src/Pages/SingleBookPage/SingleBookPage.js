@@ -6,8 +6,8 @@ import Comments from "../../components/Comments/Comments";
 import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import { VscCopy } from "react-icons/vsc";
 
 const axios = require("axios").default;
 
@@ -62,6 +62,10 @@ function SingleBookPage() {
 
   const { description, genre, img, name, publishingHouse, title } = bookInfo;
 
+  const onCopy = () => {
+    navigator.clipboard.writeText(window.location.href);
+  };
+
   return (
     <>
       <div className="single_book_container">
@@ -69,6 +73,14 @@ function SingleBookPage() {
         <div className="single_book_description_container">
           <Divider sectionTitle={title} />
           <p>{description}</p>
+          <div className="copy_link_container">
+            <p style={{ marginTop: "20px" }}>
+              Aby skopiować link kliknij przycisk
+            </p>
+            <button className="copy_link_button" onClick={onCopy}>
+              <VscCopy />
+            </button>
+          </div>
           {isLoggedIn && (
             <Box sx={{ minWidth: 120 }} style={{ marginTop: "20px" }}>
               <InputLabel id="demo-simple-select-label">
