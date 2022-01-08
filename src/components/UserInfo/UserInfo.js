@@ -47,6 +47,10 @@ function ContactInfo() {
     }
   };
 
+  const handleLogout = () => {
+    window.location = "http://localhost:3000";
+  };
+
   return (
     <div className="contact_info_container">
       <h2>Twoje dane</h2>
@@ -85,6 +89,10 @@ function ContactInfo() {
           onSubmit={changePassword}
         />
       )}
+      <div className="user_info_divider" />
+      <button className="logout_button" onClick={handleLogout}>
+        Wyloguj się
+      </button>
     </div>
   );
 }

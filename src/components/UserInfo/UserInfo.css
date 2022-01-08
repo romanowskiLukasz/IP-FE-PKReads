@@ -26,3 +26,22 @@
   color: #606459;
   transition: all 0.3s ease-out;
 }
+
+.logout_button {
+  margin-top: 25px;
+  width: 50%;
+  height: 50px;
+  background-color: transparent;
+  color: #606459;
+  padding: 8px 20px;
+  border: 1px solid #606459;
+  transition: all 0.3s ease-out;
+  font-size: 1.2em;
+}
+
+.logout_button:hover {
+  cursor: pointer;
+  background: #ebc479;
+  color: #606459;
+  transition: all 0.3s ease-out;
+}
