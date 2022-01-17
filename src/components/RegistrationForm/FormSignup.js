@@ -18,9 +18,6 @@ const FormSignup = ({ submitForm }) => {
           <Divider sectionTitle={"Utwórz konto "} />
         </div>
         <div className="form-inputs">
-          <p className="form_header_text">
-            Aby zweryfikować konto należy udać się do placówki biblioteki
-          </p>
           <label className="form-label">Imię i Nazwisko</label>
           <input
             className="form-input"
