@@ -6,6 +6,7 @@
   margin-right: auto;
   height: 75px;
   border-radius: 10px;
+  justify-content: center;
 }
 
 .user_card_container:hover {
